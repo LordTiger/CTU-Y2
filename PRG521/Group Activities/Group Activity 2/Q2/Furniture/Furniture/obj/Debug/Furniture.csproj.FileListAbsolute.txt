@@ -1,0 +1,7 @@
+C:\Users\Brandon\Desktop\PRG521\Group Activities\Group Activity 2\Q2\Furniture\Furniture\obj\Debug\Furniture.csprojAssemblyReference.cache
+C:\Users\Brandon\Desktop\PRG521\Group Activities\Group Activity 2\Q2\Furniture\Furniture\obj\Debug\Furniture.csproj.CoreCompileInputs.cache
+C:\Users\Brandon\Desktop\PRG521\Group Activities\Group Activity 2\Q2\Furniture\Furniture\bin\Debug\Furniture.exe.config
+C:\Users\Brandon\Desktop\PRG521\Group Activities\Group Activity 2\Q2\Furniture\Furniture\bin\Debug\Furniture.exe
+C:\Users\Brandon\Desktop\PRG521\Group Activities\Group Activity 2\Q2\Furniture\Furniture\bin\Debug\Furniture.pdb
+C:\Users\Brandon\Desktop\PRG521\Group Activities\Group Activity 2\Q2\Furniture\Furniture\obj\Debug\Furniture.exe
+C:\Users\Brandon\Desktop\PRG521\Group Activities\Group Activity 2\Q2\Furniture\Furniture\obj\Debug\Furniture.pdb
