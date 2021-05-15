@@ -1,0 +1,12 @@
+C:\Users\Brandon\Desktop\PRG521\FA2\FA_2\FA_2\bin\Debug\FA_2.exe.config
+C:\Users\Brandon\Desktop\PRG521\FA2\FA_2\FA_2\bin\Debug\FA_2.exe
+C:\Users\Brandon\Desktop\PRG521\FA2\FA_2\FA_2\bin\Debug\FA_2.pdb
+C:\Users\Brandon\Desktop\PRG521\FA2\FA_2\FA_2\obj\Debug\FA_2.csprojAssemblyReference.cache
+C:\Users\Brandon\Desktop\PRG521\FA2\FA_2\FA_2\obj\Debug\FA_2.Dashboard.resources
+C:\Users\Brandon\Desktop\PRG521\FA2\FA_2\FA_2\obj\Debug\FA_2.Donate.resources
+C:\Users\Brandon\Desktop\PRG521\FA2\FA_2\FA_2\obj\Debug\FA_2.Properties.Resources.resources
+C:\Users\Brandon\Desktop\PRG521\FA2\FA_2\FA_2\obj\Debug\FA_2.csproj.GenerateResource.cache
+C:\Users\Brandon\Desktop\PRG521\FA2\FA_2\FA_2\obj\Debug\FA_2.csproj.CoreCompileInputs.cache
+C:\Users\Brandon\Desktop\PRG521\FA2\FA_2\FA_2\obj\Debug\FA_2.exe
+C:\Users\Brandon\Desktop\PRG521\FA2\FA_2\FA_2\obj\Debug\FA_2.pdb
+C:\Users\Brandon\Desktop\PRG521\FA2\FA_2\FA_2\obj\Debug\FA_2.Admin.resources
