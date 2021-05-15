@@ -2,10 +2,9 @@
 
 ### Info:
 - **Author:** LordTiger
-- **Discord:** LordTiger#1913
+- **Discord:** タイガー卿#1913
 
 ### Social Links:
-- [Discord:](https://discord.gg/6qkYQ94dBQ)
 - [Twitch:](https://www.twitch.tv/mlordtiger)
 - [Twitter:](https://twitter.com/MLordTiger)
 
