@@ -1,0 +1,50 @@
+(2021/04/29 00:00:00)
+Miles Driven: 50
+Gallons of gas used: 2
+Efficiency (Miles/Gallon): 25
+
+(2021/04/29 00:00:00)
+Miles Driven: 100
+Gallons of gas used: 30
+Efficiency (Miles/Gallon): 3,33333333333333
+
+(2021/04/29 00:00:00)
+Miles Driven: 50
+Gallons of gas used: 6
+Efficiency (Miles/Gallon): 8,33333333333333
+
+(2021/04/29 00:00:00)
+Miles Driven: 9
+Gallons of gas used: 6
+Efficiency (Miles/Gallon): 1,5
+
+(2021/04/29 00:00:00)
+Miles Driven: 0
+Gallons of gas used: 5
+Efficiency (Miles/Gallon): 0
+
+(2021/04/29 00:00:00)
+Miles Driven: 90
+Gallons of gas used: 63
+Efficiency (Miles/Gallon): 1,42857142857143
+
+(2021/04/29 00:00:00)
+Miles Driven: 7
+Gallons of gas used: 6
+Efficiency (Miles/Gallon): 1,16666666666667
+
+(2021/04/29 00:00:00)
+Miles Driven: 99
+Gallons of gas used: 1
+Efficiency (Miles/Gallon): 99
+
+(2021/04/29 00:00:00)
+Miles Driven: 99
+Gallons of gas used: 60
+Efficiency (Miles/Gallon): 1,65
+
+(2021/04/29 00:00:00)
+Miles Driven: 20000
+Gallons of gas used: 5660
+Efficiency (Miles/Gallon): 3,53356890459364
+
