@@ -1,0 +1,7 @@
+C:\Users\Brandon\Desktop\PRG521\Group Activities\Group Activity 4\GA4\StudReportCard\StudReportCard\bin\Debug\StudReportCard.exe.config
+C:\Users\Brandon\Desktop\PRG521\Group Activities\Group Activity 4\GA4\StudReportCard\StudReportCard\bin\Debug\StudReportCard.exe
+C:\Users\Brandon\Desktop\PRG521\Group Activities\Group Activity 4\GA4\StudReportCard\StudReportCard\bin\Debug\StudReportCard.pdb
+C:\Users\Brandon\Desktop\PRG521\Group Activities\Group Activity 4\GA4\StudReportCard\StudReportCard\obj\Debug\StudReportCard.csprojAssemblyReference.cache
+C:\Users\Brandon\Desktop\PRG521\Group Activities\Group Activity 4\GA4\StudReportCard\StudReportCard\obj\Debug\StudReportCard.csproj.CoreCompileInputs.cache
+C:\Users\Brandon\Desktop\PRG521\Group Activities\Group Activity 4\GA4\StudReportCard\StudReportCard\obj\Debug\StudReportCard.exe
+C:\Users\Brandon\Desktop\PRG521\Group Activities\Group Activity 4\GA4\StudReportCard\StudReportCard\obj\Debug\StudReportCard.pdb
