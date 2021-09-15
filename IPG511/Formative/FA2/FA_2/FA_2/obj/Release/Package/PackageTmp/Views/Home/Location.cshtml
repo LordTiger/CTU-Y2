@@ -1,0 +1,180 @@
+﻿@{
+    ViewBag.Title = "Location";
+}
+<br>
+<br>
+<!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
+<link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
+<script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+
+<!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
+<script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
+<body onload="GetMap()">
+    <div class="row">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="col-md-10">
+                    <h2 align="center">Location</h2>
+                    <h4 align="center">Vist the store closest to you and pick your facourite comic:</h4>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <div align="center" id="myMap" style="width: 100%; height: 500px"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        font-family: segoeui;
+    }
+
+    #myMap {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+<script>
+    var map, datasource, client, popup;
+    //The number of ms between key strokes to wait before performing a search.
+    var keyStrokeDelay = 150;
+
+    function GetMap() {
+        //Initialize a map instance.
+        map = new atlas.Map('myMap', {
+            // center: [28.034088, -26.195246],
+            zoom: 14,
+            view: 'Auto',
+
+            //Add authentication details for connecting to Azure Maps.
+            authOptions: {
+                //Use Azure Active Directory authentication.
+                authType: 'subscriptionKey',
+                subscriptionKey: '6fY-ujPsaPFkk24ydZtRSTHKWiGTJr7t8sxYILNhKjI'
+
+            }
+        });
+
+        map.events.add('ready', function () {
+
+            //Create a data source and add it to the map.
+            datasource = new atlas.source.DataSource();
+            map.sources.add(datasource);
+
+            //Add a layer for rendering point data.
+            var resultLayer = new atlas.layer.SymbolLayer(datasource, null, {
+                iconOptions: {
+                    image: 'pin-red',
+                    anchor: 'center',
+                    allowOverlap: true
+                },
+                textOptions: {
+                    anchor: "top"
+                }
+            });
+
+            map.layers.add(resultLayer);
+
+            //Use MapControlCredential to share authentication between a map control and the service module.
+            var pipeline = atlas.service.MapsURL.newPipeline(new atlas.service.MapControlCredential(map));
+
+            // Construct the SearchURL object
+            var searchURL = new atlas.service.SearchURL(pipeline);
+
+            var query = 'comic-books';
+            var radius = 9000;
+            var lat = 47.608013;
+            var lon = -122.335167;
+
+            searchURL.searchPOI(atlas.service.Aborter.timeout(10000), query, {
+                limit: 7,
+                lat: lat,
+                lon: lon,
+                radius: radius,
+                view: 'Auto'
+            }).then((results) => {
+
+                // Extract GeoJSON feature collection from the response and add it to the datasource
+                var data = results.geojson.getFeatures();
+                datasource.add(data);
+
+                // set camera to bounds to show the results
+                map.setCamera({
+                    bounds: data.bbox,
+                    zoom: 10,
+                    padding: 15
+                });
+            });
+
+            //Create a popup but leave it closed so we can update it and display it later.
+            popup = new atlas.Popup();
+
+            //Add a mouse over event to the result layer and display a popup when this event fires.
+            map.events.add('mouseover', resultLayer, showPopup);
+
+            function showPopup(e) {
+                //Get the properties and coordinates of the first shape that the event occurred on.
+
+                var p = e.shapes[0].getProperties();
+                var position = e.shapes[0].getCoordinates();
+
+                //Create HTML from properties of the selected result.
+                var html = ['<div style="padding:5px"><div><b>', p.poi.name,
+                    '</b></div><div>', p.address.freeformAddress,
+                    '</div><div>', position[1], ', ', position[0], '</div></div>'];
+
+                //Update the content and position of the popup.
+                popup.setPopupOptions({
+                    content: html.join(''),
+                    position: position
+                });
+
+                //Open the popup.
+                popup.open(map);
+            }
+        });
+    }
+
+    //Loads the map
+    function showPopup(shape) {
+                var properties = shape.getProperties();
+                //Create the HTML content of the POI to show in the popup.
+                var html = ['<div class="poi-box">'];
+                //Add a title section for the popup.
+                html.push('<div class="poi-title-box"><b>');
+
+                if (properties.poi && properties.poi.name) {
+                    html.push(properties.poi.name);
+                } else {
+                    html.push(properties.address.freeformAddress);
+                }
+                html.push('</b></div>');
+                //Create a container for the body of the content of the popup.
+                html.push('<div class="poi-content-box">');
+                html.push('<div class="info location">', properties.address.freeformAddress, '</div>');
+                if (properties.poi) {
+                    if (properties.poi.phone) {
+                        html.push('<div class="info phone">', properties.phone, '</div>');
+                    }
+                    if (properties.poi.url) {
+                        html.push('<div><a class="info website" href="http://', properties.poi.url, '">http://', properties.poi.url, '</a></div>');
+                    }
+                }
+                html.push('</div></div>');
+                popup.setOptions({
+                    position: shape.getCoordinates(),
+                    content: html.join('')
+                });
+                popup.open(map);
+            }
+</script>

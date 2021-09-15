@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 6854 Brandon de Bruyn</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="img">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" style="font-size: 19px;">
+                    <li class="nav-item"role="presentation">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li class="nav-item" role="presentation">@Html.ActionLink("Location", "Location", "Home")</li>
+                    <li class="nav-item" role="presentation">@Html.ActionLink("Favourites", "Favourites", "Home")</li>
+                    <li class="nav-item" role="presentation">@Html.ActionLink("About Us", "About", "Home")</li>
+                    <li class="nav-item" role="presentation">@Html.ActionLink("Latest News", "News", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - 6854 Brandon de Bruyn</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

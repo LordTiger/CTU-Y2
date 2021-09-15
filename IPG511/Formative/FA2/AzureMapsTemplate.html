@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Interactive Search Quickstart - Azure Maps Web SDK Samples</title>
+
+    <meta charset="utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico"/>
+    <meta http-equiv="x-ua-compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="This tutorial shows how to create an interactive search experience." />
+    <meta name="keywords" content="Microsoft maps, map, gis, API, SDK, services, module, tutorials, search, point of interest, POI" />
+    <meta name="author" content="Microsoft Azure Maps" />
+
+    <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+
+    <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
+    <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
+
+    <script>
+        var map, datasource, client, popup;
+        //The number of ms between key strokes to wait before performing a search.
+        var keyStrokeDelay = 150;
+
+        function GetMap() {
+            //Initialize a map instance.
+            map = new atlas.Map('myMap', {
+                center: [-122.335167, 47.608013],
+                zoom: 14,
+                view: 'Auto',
+
+                //Add authentication details for connecting to Azure Maps.
+                authOptions: {
+                    //Use Azure Active Directory authentication.
+                     authType: 'subscriptionKey',
+                     subscriptionKey: 'Your Azure Map Primary Key'
+
+                }
+            });
+    var marker = new atlas.HtmlMarker({
+    color: 'Red',
+    text: '10',
+    position: [47.60924813394435, -122.31821061301355],
+    popup: new atlas.Popup({
+        content: '<div style="padding:10px">Hello</div>',
+        pixelOffset: [47.60924813394435, -122.31821061301355]
+    })
+});
+map.markers.add(marker);
+
+//Add a click event to toggle the popup.
+map.events.add('click',marker, () => {
+    marker.togglePopup();
+});
+            
+            //Create a popup which we can reuse for each result.
+            popup = new atlas.Popup();
+
+            //Wait until the map resources are ready.
+            map.events.add('ready', function () {
+
+                //Add the zoom control to the map.
+                map.controls.add(new atlas.control.ZoomControl(), {
+                    position: 'top-right'
+                });
+
+                //Create a data source and add it to the map.
+                datasource = new atlas.source.DataSource();
+                map.sources.add(datasource);
+
+                //Add a layer for rendering the results.
+               
+                map.layers.add(searchLayer);
+
+            
+            });
+        }
+       
+        function showPopup(shape) {
+            var properties = shape.getProperties();
+            //Create the HTML content of the POI to show in the popup.
+            var html = ['<div class="poi-box">'];
+            //Add a title section for the popup.
+            html.push('<div class="poi-title-box"><b>');
+
+            if (properties.poi && properties.poi.name) {
+                html.push(properties.poi.name);
+            } else {
+                html.push(properties.address.freeformAddress);
+            }
+            html.push('</b></div>');
+            //Create a container for the body of the content of the popup.
+            html.push('<div class="poi-content-box">');
+            html.push('<div class="info location">', properties.address.freeformAddress, '</div>');
+            if (properties.poi) {
+                if (properties.poi.phone) {
+                    html.push('<div class="info phone">', properties.phone, '</div>');
+                }
+                if (properties.poi.url) {
+                    html.push('<div><a class="info website" href="http://', properties.poi.url, '">http://', properties.poi.url, '</a></div>');
+                }
+            }
+            html.push('</div></div>');
+            popup.setOptions({
+                position: shape.getCoordinates(),
+                content: html.join('')
+            });
+            popup.open(map);
+        }
+    </script>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            overflow:hidden;
+            font-family: segoeui;
+        }
+        #myMap {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body onload="GetMap()">
+    <div id="myMap"></div>
+</body>
+
+</html>
