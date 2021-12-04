@@ -1,0 +1,9 @@
+
+SELECT StudentResult;
+CREATE TABLE ResultTable (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+StudentNumber int(30) NOT NULL,
+HighestResult DOUBLE NOT NULL,
+LowestResult DOUBLE NOT NULL,
+Average DOUBLE NOT NULL
+);

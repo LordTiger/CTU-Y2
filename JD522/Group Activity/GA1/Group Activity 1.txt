@@ -1,0 +1,22 @@
+-----JD522 Group Activity 1-----
+
+- 7293 - Luke De Kiewit
+- 6854 - Brandon De Bruyn
+
+_______________________________
+
+Question 1 
+
+1. - C. Jar .
+
+2. - A. Has a title bar and border .
+
+3. - C. Source .
+
+4. - D. implements ActionListener
+
+5. - A. addActionListener(this);
+
+6. - C. as many listeners as it needs .
+
+_______________________________
